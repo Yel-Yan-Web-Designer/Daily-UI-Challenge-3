@@ -3,15 +3,18 @@
 /* ------------------------------- */
 :root{
     /* ---colors--- */
-    --clr-primary : hsl(210, 100%, 46);
+    --clr-primary : hsl(210, 100%, 46%);
     --clr-white :  hsl(100, 100%, 100%);
     --clr-black : hsl(0, 0%, 0%);
-    --clr-bg : hsl(40, 100%, 1);
+    --clr-bg : hsl(40, 100%, 1%);
 }
 *,*::before,*::after{
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+}
+html{
+    scroll-behavior: smooth;
 }
 body{
     background-color: var(--clr-bg);
@@ -30,4 +33,592 @@ li,ul{
 }
 a{
     text-decoration: none;
+}
+.container{
+    padding: 0.7rem 1rem;
+}
+.section .container{
+    padding-top: 6rem;
+    padding-bottom: 3rem;
+}
+.primary{
+    color: var(--clr-primary);
+}
+.section h2{
+    font-size: 2rem;
+    margin-bottom: 2rem;
+}
+/* ----------------------------------- */
+/* HEADER */
+/* ----------------------------------- */
+.header{
+    position: fixed;
+    left: 0; right: 0;
+}
+.show-header-box-shadow{
+    box-shadow: rgba(255, 255, 255, 0.1) 0px 3px 8px;
+    background-color: hsl(40, 100%, 1%);
+}
+.nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+.logo{
+    width: 3rem;
+    height: 3rem;
+    cursor: pointer;
+}
+.nav-list{
+    display: flex;
+    flex-direction: row;
+    column-gap: 2rem;
+}
+.nav-link{
+    cursor: pointer;
+    color: var(--clr-white);
+    transition: all 0.3s ease-in-out;
+}
+.nav-link::after{
+    content: '';
+    display: block;
+    background-color: var(--clr-primary);
+    height: 2px;
+    width: 0%;
+    border-radius: 20px;
+    margin-top: 2px;
+    transition: 0.3s;
+}
+.nav-link:hover{
+    color: var(--clr-primary);
+} 
+.nav-link:hover::after{
+    width: 1.5em;
+}
+.active{
+    color: var(--clr-primary);
+}
+.active::after{
+    width: 1.5em;
+}
+.heart{
+    margin-right: 0.5rem;
+}
+.heart, .shopping-bag{
+    display: inline-block;
+    width: 1.5rem;
+    height: 1.5rem;
+    cursor: pointer;
+}
+.toggle-btn{
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.hamburger{
+    width: 100%;
+    height: 2.5px;
+    background-color: var(--clr-white);
+    border-radius: 10px;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.3s;
+    z-index: 100;
+}
+.hamburger::before,
+.hamburger::after{
+    content: '';
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 2.5px;
+    border-radius: 10px;
+    background-color: var(--clr-white);
+    cursor: pointer;
+    transition: all 0.3s;
+    z-index: 100;
+    cursor: pointer;
+}
+.hamburger::before{
+    transform: translateY(-10px);
+}
+.hamburger::after{
+    transform: translateY(10px);
+}
+/* ---add from js--- */
+.nav-open .nav-menu{
+    right: 0%;
+}
+.nav-open .hamburger{
+    transform: translateX(-50px);
+    background: transparent;
+}
+.nav-open .hamburger::before{
+    transform: rotate(45deg) translate(35px , -35px);
+}
+.nav-open .hamburger::after{
+    transform: rotate(-45deg) translate(35px , 35px);
+}
+/* -------------------------------------- */
+/* Home section */
+/* -------------------------------------- */
+.home{
+    background-image: url(../img/hero/apple-hero-bg-min.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    width: 100%;
+    height: 120vh;
+    min-height: 120vh;
+}
+.hero-container{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    row-gap: 2.5rem;
+    align-items: center;
+}
+.hero-subtitle{
+    padding-left: 1rem;
+}
+.main-img{
+    width: 8rem;
+    height: 10rem;
+}
+.dance-2-img, .dance-airpod-img{
+    width: 3rem;
+    height: 3rem;
+}
+.model-airpod-img{
+    width: 7rem;
+    height: 7rem;
+}
+.hero-btn{
+    background-color: var(--clr-primary);
+    display: inline-block;
+    padding: 0.6rem 1.4rem;
+    border-radius: 100px;
+    color: var(--clr-white);
+    cursor: pointer;
+    border: 1px solid transparent;
+    transition: all 0.2s ease;
+}
+.hero-btn:hover{
+    color: var(--clr-primary);
+    border: 1px solid var(--clr-primary);
+    background: transparent;
+}
+.scroll-down{
+    text-align: center;
+    margin-top: 2rem;
+}
+.arrow-down{
+    width: 20px;
+    margin-inline: auto;
+    margin-top: 0.3rem;
+}
+/* -------------------------------------- */
+/* About section */
+/* -------------------------------------- */
+
+.about-container{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-content: center;
+    align-items: center;
+}
+.about-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.about-title{
+    align-self: flex-start;
+    margin-left: 3.5rem;
+    font-size: 2.8rem;
+    text-align: left;
+}
+.about-description{
+    align-self: flex-start;
+    max-width: 30rem;
+    font-size: 1.5rem;
+    margin-left: 3.5rem;
+}
+.about-img img{
+    object-fit: cover;
+}
+/* -------------------------------------- */
+/* Product section */
+/* -------------------------------------- */
+.product{
+    background-image: url(../img/products/apple-product-bg-min.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+.product-main-title{
+    margin-bottom: 3rem;
+}
+.product-main-title::after{
+    content: '';
+    height: 1.5rem;
+    width: 5px;
+    background-color: var(--clr-primary);
+    display: block;
+    position: absolute;
+    top: 4px;
+    left: -15px;
+}
+.product-container{
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    justify-items: center;
+    row-gap: 2rem;
+}
+.product-card{
+    /* From https://css.glass */
+    background: rgba(255, 255, 255, 0.16);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    text-align: center;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    row-gap: 0.5rem;
+    width: 80%;
+    max-width: 80%;
+    padding-bottom: 1rem;
+}
+.product-img img{
+    width: 150px;
+    height: 150px;
+    margin: 0 auto;
+}
+.buy-btn{
+    border: 1px solid transparent;
+    outline: none;
+    background-color: var(--clr-primary);
+    color: var(--clr-white);
+    border-radius: 100px;
+    padding: 0.5rem 1.3rem;
+    display: inline-block;
+    cursor: pointer;
+    transition: 0.15s;
+}
+.buy-btn:hover{
+    background-color: transparent;
+    border: 1px solid var(--clr-primary);
+    color: var(--clr-primary);
+}
+.learn a{
+    color: var(--clr-primary);
+    cursor: pointer;
+}
+/* -------------------------------------- */
+/* Apple music section */
+/* -------------------------------------- */
+.section-title-container{
+    display: flex;
+}
+.music-title{
+    width: 2.5rem;
+    height: 2.5rem;
+}
+.section-title-container h2{
+    font-size: 2rem;
+    margin-bottom: 0 !important;
+}
+.music-content{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    justify-items: space-between;
+}
+.trial{
+    font-size: 2.8rem;
+}
+.music-img{
+    width: 80%;
+    justify-self: flex-end;
+}
+
+/* -------------------------------------- */
+/* delivery section */
+/* -------------------------------------- */
+.delivery-card{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    row-gap: 0.5rem;
+}
+.delivery-title{
+    font-size: 2rem;
+}
+.delivery-description{
+    font-size: 1.4rem;
+}
+.delivery-container{
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    row-gap: 4rem;
+}
+/* -------------------------------------- */
+/* Media Query */
+/* -------------------------------------- */
+@media(max-width: 559px){
+    .hero-grid{
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        grid-template-areas: 
+            "title title title title . dance2"
+            "title title title title mainImg model"
+            "title title title title . danceAirpod"
+        ;
+        gap: 1.5rem;
+    }
+    .main-img{
+        grid-area: mainImg;
+        width: 2rem;
+        height: 2rem;
+    }
+    .title{
+        grid-area: title;
+    }
+    .dance-2-img{
+        grid-area: dance2;
+    }
+    .dance-airpod-img{
+        grid-area: danceAirpod;
+    }
+    .model-airpod-img{
+        grid-area: model;
+    }
+}  
+
+/* mobile below 320px for home section */
+@media (max-width  : 320px){
+    .arrow-down{
+        margin-top: 0;
+    }
+    .hero-subtitle{
+        padding-left: 0;
+    }
+    .hero-grid{
+        display: grid;
+        grid-template-rows: repeat(1, 1fr);
+        gap: 0.3rem;
+    }
+    .title{
+        grid-column-start: 1;
+        grid-column-end: 8;
+        grid-row-start: 1;
+        grid-row-end: 2;
+    }
+    .main-img{
+        grid-column-start: 2;
+        grid-column-end: 3;
+        grid-row-start: 2;
+        grid-row-end: 3;
+    }
+    .dance-2-img{
+        grid-column-start: 6;
+        grid-column-end: 8;
+        grid-row-start: 2;
+        grid-row-end: 3;
+    }
+    .model-airpod-img{
+        grid-column-start: 3;
+        grid-column-end: 6;
+        grid-row-start: 2;
+        grid-row-end: 3;
+    }
+    .dance-airpod-img{
+        grid-column-start: 1;
+        grid-column-end: 2;
+        grid-row-start: 2;
+        grid-row-end: 3;
+    }
+}
+
+@media(min-width : 560px){
+    .container{
+        padding-inline: 3rem;
+    }
+/* hero section */
+    .hero-grid{
+        display: grid;
+        grid-template-columns: repeat(8, 1fr);
+        grid-template-areas: 
+            "title title title title . dance2 . ."
+            "title title title title mainImg mainImg model model"
+            "title title title title . danceAirpod . ."
+        ;
+        gap: 1.5rem;
+    }
+    .main-img{
+        grid-area: mainImg;
+    }
+    .title{
+        grid-area: title;
+    }
+    .dance-2-img{
+        grid-area: dance2;
+    }
+    .model-airpod-img{
+        grid-area: model;
+    }
+    .dance-airpod-img{
+        grid-area: danceAirpod;
+    }
+
+    /* product section */
+    .product-container{
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media(max-width: 768px){
+    /* for nav only */
+    .nav-menu{
+        background-color: #10100F;
+        position: fixed;
+        top : 0; right: -100%;
+        bottom: 0;
+        width: 70%;
+        max-width: 70%;
+        height: 100%;
+        border-radius: 20px 0 0 20px;
+        transition: all 0.3s ease-in-out;
+        box-shadow: rgba(0, 0, 0, 0.8) 0px 3px 8px;
+        padding: 4rem 0 0 3rem;
+        z-index: 99;
+    }
+    .nav-list{
+        flex-direction: column;
+        row-gap: 1.5rem;
+    }
+    .nav-list ul{
+        flex-direction: column;
+        row-gap: 2rem;
+    }
+
+
+    /* ---about section--- */
+    .about-container{
+        grid-template-columns: repeat(1, 1fr);
+        margin-bottom: 1rem;
+    }
+    .about-content{
+        margin-bottom: 1rem;
+    }
+    .about-title{
+        align-self: flex-start;
+        margin-left: 0;
+    }
+    .about-description{
+        margin-left: 0;
+    }
+    /* product section */
+    .product .section-title{
+        z-index: 0;
+    }
+    /* apple music section */
+    .music-content{
+        grid-template-columns: repeat(1, 1fr);
+        row-gap: 3rem;
+    }
+    .music-img{
+        width: 100%;
+    }
+}
+@media(min-width: 768px){
+    .toggle-btn{
+        display: none;
+    }
+    .nav-menu{
+        flex: 0 0 60%;
+        max-width: 60%;
+    }
+    .nav-list{
+        justify-content: space-between;
+        align-items: center;
+    }
+    /* delivery section */
+    .delivery-container{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 3rem;
+    }
+}
+@media(min-width: 1024px){
+    .container{
+        padding-inline: 5rem;
+    }
+
+    /* hero section */
+    .hero-grid{
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        row-gap: 0;
+    }
+    .title{
+        grid-column-start: 5;
+        grid-column-end: 10;
+        grid-row-start: 1;
+        grid-row-end: 3;
+    }
+    .main-img{
+        grid-column-start: 2;
+        grid-column-end: 6;
+        grid-row-start: 2;
+        grid-row-end: 4;
+        width: 70%; /* get full width in grid system*/
+    }
+    .dance-2-img{
+        grid-column-start: 9;
+        grid-column-end: 12;
+        grid-row-start:1;
+        grid-row-end: 2;
+        width: 30%;
+    }
+    .model-airpod-img{
+        grid-column-start: 10;
+        grid-column-end: 12;
+        grid-row-start: 2;
+        grid-row-end: 3;
+    }
+    .dance-airpod-img{
+        grid-column-start: 8;
+        grid-column-end: 10;
+        grid-row-start: 3;
+        grid-row-end: 4;
+        width: 50%;
+    }
+    .hero-title{
+        font-size: 2.8rem;
+    }
+    .hero-subtitle{
+        font-size: 1.3rem;
+        padding-left: 3rem;
+    }
+    .product-container{
+        grid-template-columns: repeat(4, 1fr);
+    }
+    .product-card{
+        width: 90%;
+        max-width: 90%;
+    }
+    /* delivery section */
+    .delivery-container{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+    }
+
 }
