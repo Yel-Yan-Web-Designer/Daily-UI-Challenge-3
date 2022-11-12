@@ -25,7 +25,7 @@
 - Relative
 - Absolute
 
-### Responsive (Avaiable)
+### Responsive (Available)
 - Mobile
 - Tablet
 - Desktop
