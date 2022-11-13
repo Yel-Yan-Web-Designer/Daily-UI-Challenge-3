@@ -43,3 +43,10 @@
 
 ### Border radius
 - border-radius - 100px
+
+
+### Image compress
+- imgupscale
+- compress jpg
+- remove bg
+- unsplash
